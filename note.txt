@@ -1,0 +1,115 @@
+🚀 STEP 1: Create Your Project Folder
+
+Create a folder named:
+
+CityNest
+
+
+Inside it, create:
+
+index.html
+style.css
+script.js
+
+
+That’s it. Keep it simple for now.
+
+🚀 STEP 2: Build Only the Basic HTML First
+
+Open index.html and start with a simple structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CityNest - Rental Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CityNest</h1>
+    <p>Find the best rental homes in your city</p>
+
+    <div class="card">
+        <h3>₹8000/month</h3>
+        <p>2BHK - Downtown</p>
+        <button>View Details</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+👉 Don’t worry about design yet. Just make sure it works in the browser.
+
+🚀 STEP 3: Add Basic CSS
+
+In style.css:
+
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+
+Now your site looks clean and modern already 👌
+
+🚀 STEP 4: Add Your First JavaScript
+
+In script.js:
+
+alert("Welcome to CityNest!");
+
+
+Refresh the page.
+
+If you see the popup → ✅ JavaScript is working.
+
+That’s your first milestone.
+
+🚀 STEP 5: Add a Simple Filter (Your First Real Feature)
+
+Add this above your card in HTML:
+
+<select id="filter">
+    <option value="all">All</option>
+    <option value="1BHK">1BHK</option>
+    <option value="2BHK">2BHK</option>
+</select>
+
+
+Update your card like this:
+
+<div class="card" data-type="2BHK">
+
+
+Now in script.js:
+
+document.getElementById("filter").addEventListener("change", function() {
+    let selected = this.value;
+    let card = document.querySelector(".card");
+
+    if (selected === "all" || card.dataset.type === selected) {
+        card.style.display = "block";
+    } else {
+        card.style.display = "none";
+    }
+});
